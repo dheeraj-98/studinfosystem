@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Page</title>
+<link rel="stylesheet" type="text/css" href=" signupcss.css">
+</head>
+
+<body>
+<h1>Student Information System</h1>
+<div class="nav">
+  <a href="home_trial.html" class="home">Home</a>
+  <a href="studsignin.html" class="student">Student</a>
+  <a href="adminsignin.html" class="admin">Admin</a>
+</div>
+<h2>SIGNUP</h2>
+<div class="container">
+ <div class="form">
+
+	<form action="studsignin.html" method="post" id="register" class="login-form" onsubmit="return checkForm(this);">
+	  <input type="text" placeholder="username" name="username" required /><br>
+	  <input type="input" placeholder="Roll number" name="Roll"required/><br>
+ 	  <input type="input" placeholder="Registration number" name="register" required /><br>
+	  <input type="email" placeholder="mail" name="mail" required /><br>
+ 	  <input type="date" placeholder="bday" required /><br>
+	  <input type="input" placeholder="Phone number" name="number" required /><br>
+	  <label> <b>Branch: </b></label>
+	  <select id="branch">
+		<option>   </option>
+		<option>CSE</option>
+		<option>IT</option>
+		<option>ECE</option>
+		<option>EE</option>
+		<option>ME</option>
+		<option>MME</option>
+		<option>CE</option>
+		<option>CHE</option>
+		<option>BT</option>
+	  </select><br></br>
+	  <label><b> Gender: </b></label>
+
+
+	 <input  type="radio" name="gender" value="male" required> <span id="Male" style="color:white;"> Male</span>
+	 <input type="radio" name="gender" value="female" required><span id="FeMale" style="color:white;"> Female</span><br>
+     <input type="password" placeholder="password" name="pwd1" required /><br>
+	 <input type="password" placeholder="confirm password" name="pwd2" required /> <br>
+
+
+     <input type="submit"   href="studsignin.html" value="Signin"/ >
+
+
+	</form>
+ </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    function checkForm(form)
+  {
+    if(form.username.value == "") {
+      alert("Error: Username cannot be blank!");
+      form.username.focus();
+      return false;
+    }
+    re = /!\/@#$%^&*()-=+"'><~`,.?|/;
+    if(!re.test(form.username.value)) {
+      alert("Error: Username must contain only letters, numbers and underscores!");
+      form.username.focus();
+      return false;
+    }
+    if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+    if(form.pwd1.value.length < 8) {
+        alert("Error: Password must contain at least six characters!");
+        form.pwd1.focus();
+        return false;
+      }
+    re = /[0-9]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Error: password must contain at least one number (0-9)!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Error: password must contain at least one uppercase letter (A-Z)!");
+        form.pwd1.focus();
+        return false;
+      }
+  	}
+
+  	 re = /[A-Z]/;
+      if(re.test(form.number.value)) {
+        alert("Error: number should be with digits!");
+        form.number.focus();
+        return false;
+      }
+
+  	 re = /[a-z]/;
+      if(re.test(form.number.value)) {
+        alert("Error: number should be with digits!");
+        form.number.focus();
+        return false;
+      }
+
+	if(form.number.value.length != 10) {
+        alert("Error: number should be 10 digits!");
+        form.number.focus();
+        return false;
+      }
+
+        re = /!\/@#$%^&*()-=+"'><~`,.?|/;
+    if(!re.test(form.Roll.value)) {
+      alert("Error: roll number should not contain special characters!");
+      form.Roll.focus();
+      return false;
+    }
+     re = /uU/;
+    if(re.test(form.register.value)) {
+      alert("Error: check your Registration number!");
+      form.Roll.focus();
+      return false;
+    }
+      re = /!\/@#$%^&*()-=+"'><~`,.?|/;
+    if(!re.test(form.register.value)) {
+      alert("Error: roll number should not contain special characters!");
+      form.register.focus();
+      return false;
+    }
+    re=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+ if (re.test(form.mail.value))
+  {
+    return (true)
+  }
+  else{
+    alert("You have entered an invalid email address!")
+    return (false)
+	}
+
+
+  }
+</script>
